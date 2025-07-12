@@ -12,19 +12,22 @@ export default function Header({
   setIsMenuOpen: (open: boolean) => void;
 }) {
   const { t } = useTranslation();
+  const [activeMenu, setActiveMenu] = React.useState<string | null>(null);
+  const timerRef = React.useRef<number | null>(null);
 
-  // Dropdown state (desktop)
-  const [fantasyOpen, setFantasyOpen] = React.useState(false);
-  const [mechanicsOpen, setMechanicsOpen] = React.useState(false);
-  const [communityOpen, setCommunityOpen] = React.useState(false);
-
-  const closeDropdowns = () => {
-    setFantasyOpen(false);
-    setMechanicsOpen(false);
-    setCommunityOpen(false);
+  const handleMouseEnter = (menu: string) => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    setActiveMenu(menu);
   };
 
-  /** Ortak dropdown stilini tekrarlamamak için */
+  const handleMouseLeave = () => {
+    timerRef.current = window.setTimeout(() => {
+      setActiveMenu(null);
+    }, 200); // Delay to allow moving to the dropdown
+  };
+
   const dropdownClass =
     "fixed left-0 right-0 top-16 w-full bg-background/95 border-b border-border/30 shadow-xl z-40";
 
@@ -44,24 +47,23 @@ export default function Header({
             {/* ----------- Fantasy ----------- */}
             <div
               className="relative"
-              onMouseEnter={() => {
-                closeDropdowns();
-                setFantasyOpen(true);
-              }}
-              onMouseLeave={() => setFantasyOpen(false)}
+              onMouseEnter={() => handleMouseEnter("fantasy")}
+              onMouseLeave={handleMouseLeave}
             >
               <button className="hover:text-primary transition-colors font-semibold">
                 Fantasy
               </button>
-
-              {fantasyOpen && (
-                <div className={dropdownClass}>
+              {activeMenu === "fantasy" && (
+                <div
+                  className={dropdownClass}
+                  onMouseEnter={() => handleMouseEnter("fantasy")}
+                >
                   <div className="max-w-5xl mx-auto flex justify-center gap-8 py-8">
                     {["Battlemaps", "Tokens", "Scenes", "Map Assets"].map(
                       (label) => (
                         <div
                           key={label}
-                          className="bg-muted rounded-lg p-4 flex flex-col items-center justify-center h-48 w-56 shadow-md"
+                          className="bg-muted rounded-lg p-4 flex flex-col items-center justify-center h-48 w-56 shadow-md transition-all border-2 border-transparent hover:border-yellow-400 hover:shadow-[0_0_16px_4px_rgba(255,215,0,0.5)]"
                         >
                           <span className="font-bold text-lg">{label}</span>
                           <span className="text-xs text-muted-foreground mt-2">
@@ -78,18 +80,17 @@ export default function Header({
             {/* ----------- Mechanics ----------- */}
             <div
               className="relative"
-              onMouseEnter={() => {
-                closeDropdowns();
-                setMechanicsOpen(true);
-              }}
-              onMouseLeave={() => setMechanicsOpen(false)}
+              onMouseEnter={() => handleMouseEnter("mechanics")}
+              onMouseLeave={handleMouseLeave}
             >
               <button className="hover:text-primary transition-colors font-semibold">
                 Mechanics
               </button>
-
-              {mechanicsOpen && (
-                <div className={dropdownClass}>
+              {activeMenu === "mechanics" && (
+                <div
+                  className={dropdownClass}
+                  onMouseEnter={() => handleMouseEnter("mechanics")}
+                >
                   <div className="max-w-5xl mx-auto flex justify-center gap-8 py-8">
                     {[
                       "SubClasses",
@@ -100,7 +101,7 @@ export default function Header({
                     ].map((label) => (
                       <div
                         key={label}
-                        className="bg-muted rounded-lg p-4 flex flex-col items-center justify-center h-48 w-56 shadow-md"
+                        className="bg-muted rounded-lg p-4 flex flex-col items-center justify-center h-48 w-56 shadow-md transition-all border-2 border-transparent hover:border-yellow-400 hover:shadow-[0_0_16px_4px_rgba(255,215,0,0.5)]"
                       >
                         <span className="font-bold text-lg">{label}</span>
                         <span className="text-xs text-muted-foreground mt-2">
@@ -116,18 +117,17 @@ export default function Header({
             {/* ----------- Community ----------- */}
             <div
               className="relative"
-              onMouseEnter={() => {
-                closeDropdowns();
-                setCommunityOpen(true);
-              }}
-              onMouseLeave={() => setCommunityOpen(false)}
+              onMouseEnter={() => handleMouseEnter("community")}
+              onMouseLeave={handleMouseLeave}
             >
               <button className="hover:text-primary transition-colors font-semibold">
                 Community
               </button>
-
-              {communityOpen && (
-                <div className="absolute left-0 mt-0 w-56 bg-background border rounded-lg shadow-lg p-4 flex flex-col gap-2 z-50">
+              {activeMenu === "community" && (
+                <div
+                  className="absolute left-0 mt-2 w-56 bg-background border rounded-lg shadow-lg p-4 flex flex-col gap-2 z-50"
+                  onMouseEnter={() => handleMouseEnter("community")}
+                >
                   {[
                     ["Patreon", "https://patreon.com"],
                     ["Discord", "https://discord.com"],
@@ -207,7 +207,7 @@ function DropdownGrid({ title, items }: { title: string; items: string[] }) {
         {items.map((label) => (
           <div
             key={label}
-            className="bg-muted rounded p-2 flex flex-col items-center justify-center h-20"
+            className="bg-muted rounded p-2 flex flex-col items-center justify-center h-20 transition-all border-2 border-transparent hover:border-yellow-400 hover:shadow-[0_0_8px_2px_rgba(255,215,0,0.5)]"
           >
             <span className="font-bold">{label}</span>
             <span className="text-xs text-muted-foreground">(Image placeholder)</span>

@@ -5,8 +5,6 @@ import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-import { LanguageSwitcher } from "../LanguageSwitcher"
-
 function NavigationMenu({
   className,
   children,
@@ -20,14 +18,13 @@ function NavigationMenu({
       data-slot="navigation-menu"
       data-viewport={viewport}
       className={cn(
-        "group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
+        "group/navigation-menu relative flex flex-1 items-center justify-center",
         className
       )}
       {...props}
     >
       {children}
       {viewport && <NavigationMenuViewport />}
-      <LanguageSwitcher />
     </NavigationMenuPrimitive.Root>
   )
 }
@@ -109,17 +106,19 @@ function NavigationMenuViewport({
   return (
     <div
       className={cn(
-        "absolute top-full left-0 isolate z-50 flex justify-center"
+        "absolute top-full left-0 isolate z-50 flex w-full justify-center"
       )}
     >
-      <NavigationMenuPrimitive.Viewport
-        data-slot="navigation-menu-viewport"
-        className={cn(
-          "origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--radix-navigation-menu-viewport-width)]",
-          className
-        )}
-        {...props}
-      />
+      <div className="w-full bg-background/95 border-b border-border/30 shadow-xl">
+        <NavigationMenuPrimitive.Viewport
+          data-slot="navigation-menu-viewport"
+          className={cn(
+            "origin-top-center text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mx-auto h-[var(--radix-navigation-menu-viewport-height)] w-[var(--radix-navigation-menu-viewport-width)] overflow-hidden rounded-b-lg",
+            className
+          )}
+          {...props}
+        />
+      </div>
     </div>
   )
 }
