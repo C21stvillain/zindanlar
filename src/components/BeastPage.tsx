@@ -50,49 +50,39 @@ const BeastPage: React.FC = () => {
           {loading && <p>{t("Loading...")}</p>}
           {error && <p className="text-red-500">{error}</p>}
           {monsters.length > 0 && (
-            <table className="min-w-full border border-gray-300 rounded-lg overflow-hidden">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="px-4 py-2">ID</th>
-                  <th className="px-4 py-2">Name</th>
-                  <th className="px-4 py-2">Title</th>
-                  <th className="px-4 py-2">CR</th>
-                  <th className="px-4 py-2">URL</th>
-                  <th className="px-4 py-2">Cover</th>
-                </tr>
-              </thead>
-              <tbody>
-                {monsters.map((monster) => (
-                  <tr key={monster.id}>
-                    <td className="border px-4 py-2">{monster.id}</td>
-                    <td className="border px-4 py-2">{monster.Name}</td>
-                    <td className="border px-4 py-2">{monster.Title}</td>
-                    <td className="border px-4 py-2">{monster.cr ?? "-"}</td>
-                    <td className="border px-4 py-2">
-                      <a
-                        href={monster.URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 underline"
-                      >
-                        {monster.URL}
-                      </a>
-                    </td>
-                    <td className="border px-4 py-2">
-                      {monster.Cover && monster.Cover.length > 0 && monster.Cover[0].is_image ? (
-                        <img
-                          src={monster.Cover[0].url}
-                          alt={monster.Cover[0].visible_name || monster.Cover[0].name}
-                          className="h-12 w-auto rounded"
-                        />
-                      ) : (
-                        "-"
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {monsters.map((monster) => {
+                const coverImg = monster.Cover && monster.Cover.length > 0 && monster.Cover[0].is_image ? monster.Cover[0].url : null;
+                return (
+                  <a
+                    key={monster.id}
+                    href={monster.URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block focus:outline-none"
+                    tabIndex={0}
+                  >
+                    <div
+                      className="relative rounded-xl shadow-lg flex flex-col justify-end min-h-[340px] h-[340px] border border-gray-300 overflow-hidden group bg-gray-900 transition-transform duration-200 ease-in-out transform hover:scale-105 focus:scale-105 cursor-pointer"
+                      style={coverImg ? { backgroundImage: `url(${coverImg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+                    >
+                      {/* Overlay for darkening the image for text readability */}
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all" />
+                      {monster.cr && (
+                        <span className="absolute top-3 right-4 bg-black/80 text-white text-xs font-bold px-2 py-1 rounded z-20">
+                          CR {monster.cr}
+                        </span>
                       )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      <div className="relative z-20 flex-1 flex items-end justify-center w-full pb-6">
+                        <span className="text-xl font-bold text-center w-full text-white drop-shadow-lg bg-black/40 rounded px-2 py-1">
+                          {monster.Title}
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
           )}
           {!loading && monsters.length === 0 && !error && (
             <p>{t("No monsters found.")}</p>
