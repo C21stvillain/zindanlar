@@ -64,7 +64,7 @@ const BeastPage: React.FC = () => {
                   >
                     <div
                       className="relative rounded-xl shadow-lg flex flex-col justify-end min-h-[340px] h-[340px] border border-gray-300 overflow-hidden group bg-gray-900 transition-transform duration-200 ease-in-out transform hover:scale-105 focus:scale-105 cursor-pointer"
-                      style={coverImg ? { backgroundImage: `url(${coverImg})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+                      style={coverImg ? { backgroundImage: `url(${coverImg})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' } : {}}
                     >
                       {/* Overlay for darkening the image for text readability */}
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all" />
