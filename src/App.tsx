@@ -10,6 +10,11 @@ import { BaserowMonster } from "./types/baserow";
 
 import { MonsterCard } from "./components/MonsterCard";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
+import BeastPage from "./components/BeastPage";
+import { useMemo } from "react";
+import { useLocation } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 import "./i18n";
 import { useTranslation } from "react-i18next";
@@ -17,55 +22,22 @@ import { useTranslation } from "react-i18next";
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [monster, setMonster] = useState<BaserowMonster | null>(null);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const location = useLocation();
 
   useEffect(() => {
     getMonster().then(setMonster);
   }, []);
 
+  // Simple routing for /beast
+  const isBeastPage = useMemo(() => location.pathname === "/beast", [location.pathname]);
+  if (isBeastPage) {
+    return <BeastPage />;
+  }
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="border-b border-border/20 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <span className="text-2xl font-bold tracking-tight fantasy-accent">{t("brand")}</span>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#battlemaps" className="hover:text-primary transition-colors">{t("nav.battlemaps")}</a>
-              <a href="#tokens" className="hover:text-primary transition-colors">{t("nav.tokens")}</a>
-              <a href="#scenes" className="hover:text-primary transition-colors">{t("nav.scenes")}</a>
-              <a href="#gallery" className="hover:text-primary transition-colors">{t("nav.gallery")}</a>
-              <a href="#community" className="hover:text-primary transition-colors">{t("nav.community")}</a>
-              <LanguageSwitcher />
-              <Button variant="outline" size="sm">{t("nav.signin")}</Button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden mt-4 space-y-4 pb-4">
-              <a href="#battlemaps" className="block hover:text-primary transition-colors">{t("nav.battlemaps")}</a>
-              <a href="#tokens" className="block hover:text-primary transition-colors">{t("nav.tokens")}</a>
-              <a href="#scenes" className="block hover:text-primary transition-colors">{t("nav.scenes")}</a>
-              <a href="#gallery" className="block hover:text-primary transition-colors">{t("nav.gallery")}</a>
-              <a href="#community" className="block hover:text-primary transition-colors">{t("nav.community")}</a>
-              <Button variant="outline" size="sm" className="w-full">{t("nav.signin")}</Button>
-            </div>
-          )}
-        </div>
-      </nav>
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -451,56 +423,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/20 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <h4 className="font-bold text-lg fantasy-accent">Zindanlar</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.battlemaps")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.tokens")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.scenes")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.adventurePacks")}</a></li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h4 className="font-bold text-lg">Support</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.contact")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.faq")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.licensing")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.commercial")}</a></li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h4 className="font-bold text-lg">Community</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.discord")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.reddit")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.artist")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.dmResources")}</a></li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h4 className="font-bold text-lg">Connect</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.twitter")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.instagram")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.youtube")}</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.patreon")}</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-border/20 mt-12 pt-8 text-center text-sm text-muted-foreground">
-            <p>{t("footer.copyright")}</p>
-            <p className="mt-2">{t("footer.crafting")}</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
