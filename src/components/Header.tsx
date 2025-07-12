@@ -149,10 +149,24 @@ export default function Header({
               )}
             </div>
 
-            <LanguageSwitcher />
-            <Button variant="outline" size="sm">
-              {t("nav.signin")}
-            </Button>
+            {/* ----------- Language Switcher ----------- */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleMouseEnter("language")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="hover:text-primary transition-colors">
+                <LanguageSwitcher />
+              </div>
+              {activeMenu === "language" && (
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 mt-2 bg-background border rounded-lg shadow-lg p-4 z-50 min-w-[120px] flex justify-center"
+                  onMouseEnter={() => handleMouseEnter("language")}
+                >
+                  <LanguageSwitcher showDropdown />
+                </div>
+              )}
+            </div>
           </div>
 
           {/* ----------- Mobil Menü Butonu ----------- */}
@@ -188,9 +202,10 @@ export default function Header({
               </div>
             </div>
 
-            <Button variant="outline" size="sm" className="w-full">
-              {t("nav.signin")}
-            </Button>
+            {/* Mobile Language Switcher */}
+            <div className="flex justify-center">
+              <LanguageSwitcher showDropdown />
+            </div>
           </div>
         )}
       </div>

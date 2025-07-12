@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -9,12 +6,20 @@ const LANGS = [
   { code: "tr", flag: "/tr.svg", alt: "Türkçe" },
 ];
 
-export const LanguageSwitcher: React.FC = () => {
+interface LanguageSwitcherProps {
+  showDropdown?: boolean;
+}
+
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ showDropdown = false }) => {
   const { i18n } = useTranslation();
   const current = i18n.language.split("-")[0];
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(showDropdown);
   const btnRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    setOpen(showDropdown);
+  }, [showDropdown]);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -25,35 +30,37 @@ export const LanguageSwitcher: React.FC = () => {
         setOpen(false);
       }
     }
-    if (open) document.addEventListener("mousedown", handleClick);
+    if (open && !showDropdown) document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, [open]);
+  }, [open, showDropdown]);
 
   const handleSelect = (code: string) => {
     i18n.changeLanguage(code);
     localStorage.setItem("i18nextLng", code);
-    setOpen(false);
+    if (!showDropdown) setOpen(false);
   };
 
   const selected = LANGS.find(l => l.code === current) || LANGS[0];
 
   return (
-    <div className="relative">
-      <button
-        ref={btnRef}
-        className="flex items-center gap-1 rounded px-2 py-1 bg-zinc-900 text-white border border-zinc-700 focus:outline-none focus:ring min-w-[48px]"
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        aria-label="Select language"
-        onClick={() => setOpen(v => !v)}
-        tabIndex={0}
-      >
-        <img src={selected.flag} alt={selected.alt} className="w-6 h-6 object-contain" />
-      </button>
-      {open && (
+    <div className="relative flex items-center justify-center">
+      {!showDropdown && (
+        <button
+          ref={btnRef}
+          className="flex items-center gap-1 rounded px-2 py-1 hover:bg-background text-foreground border border-border focus:outline-none focus:ring min-w-[48px] justify-center"
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          aria-label="Select language"
+          onClick={() => !showDropdown && setOpen(v => !v)}
+          tabIndex={0}
+        >
+          <img src={selected.flag} alt={selected.alt} className="w-6 h-6 object-contain" />
+        </button>
+      )}
+      {(open || showDropdown) && (
         <ul
           ref={listRef}
-          className="absolute right-0 mt-1 w-16 bg-zinc-900 border border-zinc-700 rounded shadow z-50"
+          className={`${showDropdown ? "" : "absolute right-0 mt-1"} w-16 bg-background border border-border rounded shadow z-50 flex flex-col items-center`}
           role="listbox"
         >
           {LANGS.map(lang => (
@@ -61,7 +68,7 @@ export const LanguageSwitcher: React.FC = () => {
               key={lang.code}
               role="option"
               aria-selected={lang.code === current}
-              className={`flex items-center gap-2 px-2 py-1 cursor-pointer hover:bg-zinc-800 ${lang.code === current ? "bg-zinc-800" : ""}`}
+              className={`flex items-center justify-center w-full px-2 py-1 cursor-pointer hover:bg-muted ${lang.code === current ? "bg-muted" : ""}`}
               onClick={() => handleSelect(lang.code)}
               tabIndex={0}
             >
