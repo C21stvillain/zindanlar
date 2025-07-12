@@ -1,3 +1,36 @@
+# Multilingual Support
+
+This project uses [react-i18next](https://react.i18next.com/) for internationalization.
+
+## Adding a New Language
+
+1. **Create a new translation file** in `src/locales/`, e.g. `fr.json` for French.
+2. **Add translations** for all keys (see `en.json` for reference).
+3. **Import and add the new language** in `src/i18n.ts`:
+   ```ts
+   import fr from "./locales/fr.json";
+   const resources = {
+     ...,
+     fr: { translation: fr },
+   };
+   ```
+4. **Add the language to the switcher** in `LanguageSwitcher.tsx`:
+   ```ts
+   { code: "fr", label: "language.french" }
+   ```
+5. **Add the language name** to all translation files:
+   ```json
+   // en.json
+   "language.french": "French"
+   // fr.json
+   "language.french": "Français"
+   ```
+
+## Usage
+
+- Use the `t` function from `react-i18next` to translate UI text.
+- The language selector in the header allows users to switch languages instantly.
+- The selected language is saved in `localStorage` and persists across page reloads.
 # Scout Vite Template
 
 This is a [Vite](https://vite.dev) project bootstrapped with React + TypeScript and configured with TailwindCSS v4 and ShadCN UI.

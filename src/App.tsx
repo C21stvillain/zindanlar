@@ -7,11 +7,17 @@ import { useEffect, useState } from "react";
 import KanyeQuote from "./components/KanyeQuote";
 import { getMonster } from "./services/baserow";
 import { BaserowMonster } from "./types/baserow";
+
 import { MonsterCard } from "./components/MonsterCard";
+import { LanguageSwitcher } from "./components/LanguageSwitcher";
+
+import "./i18n";
+import { useTranslation } from "react-i18next";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [monster, setMonster] = useState<BaserowMonster | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     getMonster().then(setMonster);
@@ -23,8 +29,8 @@ export default function App() {
       <nav className="border-b border-border/20 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold tracking-tight">
-              <span className="fantasy-accent">Deneme</span>
+            <div className="flex items-center gap-4">
+              <span className="text-2xl font-bold tracking-tight fantasy-accent">Zindanlar</span>
             </div>
 
             {/* Desktop Navigation */}
@@ -34,6 +40,7 @@ export default function App() {
               <a href="#scenes" className="hover:text-primary transition-colors">Scenes</a>
               <a href="#gallery" className="hover:text-primary transition-colors">Gallery</a>
               <a href="#community" className="hover:text-primary transition-colors">Community</a>
+              <LanguageSwitcher />
               <Button variant="outline" size="sm">Sign In</Button>
             </div>
 
@@ -72,7 +79,7 @@ export default function App() {
             Award-Winning D&D Assets
           </Badge>
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8 drop-shadow-2xl hero-title">
-            <span className="fantasy-accent">Deneme</span>
+            <span className="fantasy-accent">{t("headline")}</span>
           </h1>
           <KanyeQuote />
           <p className="text-xl md:text-2xl text-foreground max-w-4xl mx-auto leading-relaxed drop-shadow-lg mb-12">
@@ -85,7 +92,7 @@ export default function App() {
               className="fantasy-bg text-background hover:opacity-90 px-8 py-6 text-lg font-semibold"
             >
               <Download className="mr-2" />
-              Browse Assets
+              {t("button")}
             </Button>
             <Button
               variant="outline"

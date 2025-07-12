@@ -5,6 +5,8 @@ import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+import { LanguageSwitcher } from "../LanguageSwitcher"
+
 function NavigationMenu({
   className,
   children,
@@ -25,6 +27,7 @@ function NavigationMenu({
     >
       {children}
       {viewport && <NavigationMenuViewport />}
+      <LanguageSwitcher />
     </NavigationMenuPrimitive.Root>
   )
 }
