@@ -37,10 +37,17 @@ export default function Header({
         <div className="flex items-center justify-between">
           {/* Marka */}
           <div className="flex items-center">
-            <img src="/logo.png" alt="Logo" className="h-12 w-12" />
-            <span className="text-2xl font-bold tracking-tight fantasy-accent">
-              {t("brand")}
-            </span>
+            <a
+              href="https://zindanlar.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <img src="/logo.png" alt="Logo" className="h-12 w-12" />
+              <span className="text-2xl font-bold tracking-tight fantasy-accent">
+                {t("brand")}
+              </span>
+            </a>
           </div>
 
           {/* ----------- Masaüstü Navigasyon ----------- */}
