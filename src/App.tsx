@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Menu, X, Star, Zap, Users, Crown, Rocket, Shield, Eye, Download, MapPin, Sword, Scroll, Dice6 } from "lucide-react";
 import { useEffect, useState } from "react";
-import KanyeQuote from "./components/KanyeQuote";
 import { getMonster } from "./services/baserow";
 import { BaserowMonster } from "./types/baserow";
 
@@ -53,7 +52,7 @@ export default function App() {
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8 drop-shadow-2xl hero-title">
             <span className="fantasy-accent">{t("headline")}</span>
           </h1>
-          <KanyeQuote />
+          
           <p className="text-xl md:text-2xl text-foreground max-w-4xl mx-auto leading-relaxed drop-shadow-lg mb-12">
             {t("hero.desc")}
           </p>
@@ -143,31 +142,7 @@ export default function App() {
             </Card>
           </div>
 
-          {/* Sample Maps Gallery */}
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <img
-                src="/battlemap-example-1.jpg"
-                alt="Dungeon battlemap collection"
-                className="w-full rounded-lg border border-border/20 card-hover"
-              />
-              <div className="text-center">
-                <h4 className="font-semibold text-lg">12 Dungeon Map Collection</h4>
-                <p className="text-muted-foreground">{t("battlemaps.dungeonCollectionDesc")}</p>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <img
-                src="/battlemap-example-2.jpg"
-                alt="Adventure map pack"
-                className="w-full rounded-lg border border-border/20 card-hover"
-              />
-              <div className="text-center">
-                <h4 className="font-semibold text-lg">SideQuests Adventure Pack</h4>
-                <p className="text-muted-foreground">{t("battlemaps.adventurePackDesc")}</p>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </section>
 
@@ -237,11 +212,7 @@ export default function App() {
             </div>
           </div>
 
-          {monster && (
-            <div className="mt-8">
-              <MonsterCard monster={monster} />
-            </div>
-          )}
+          
         </div>
       </section>
 

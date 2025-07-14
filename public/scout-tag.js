@@ -2,8 +2,6 @@
   // Create the built by scout tag
   const tag = document.createElement("div");
   tag.id = "built-by-scout";
-  tag.innerHTML =
-    '<a href="zindanlar.com" target="_blank" rel="noopener noreferrer">Built by Zindanlar</a>';
 
   // Style the tag
   const style = document.createElement("style");

@@ -36,7 +36,8 @@ export default function Header({
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Marka */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center">
+            <img src="/logo.png" alt="Logo" className="h-12 w-12" />
             <span className="text-2xl font-bold tracking-tight fantasy-accent">
               {t("brand")}
             </span>
