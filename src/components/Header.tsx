@@ -149,6 +149,15 @@ export default function Header({
                 </div>
               )}
             </div>
+            {/* ----------- Pricing ----------- */}
+            <div>
+              <button
+                className="hover:text-primary transition-colors font-semibold"
+                onClick={() => (window.location.pathname = "/pricing")}
+              >
+                Pricing
+              </button>
+            </div>
 
             {/* ----------- Language Switcher ----------- */}
             <div

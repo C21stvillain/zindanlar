@@ -10,6 +10,7 @@ import { BaserowMonster } from "./types/baserow";
 import { MonsterCard } from "./components/MonsterCard";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
 import BeastPage from "./components/BeastPage";
+import PricingPage from "./components/PricingPage";
 import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "./components/Header";
@@ -28,10 +29,14 @@ export default function App() {
     getMonster().then(setMonster);
   }, []);
 
-  // Simple routing for /beast
+  // Simple routing for /beast and /pricing
   const isBeastPage = useMemo(() => location.pathname === "/beast", [location.pathname]);
+  const isPricingPage = useMemo(() => location.pathname === "/pricing", [location.pathname]);
   if (isBeastPage) {
     return <BeastPage />;
+  }
+  if (isPricingPage) {
+    return <PricingPage />;
   }
   return (
     <div className="min-h-screen bg-background text-foreground">
