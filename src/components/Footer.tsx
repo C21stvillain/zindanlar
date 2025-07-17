@@ -21,7 +21,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.contact")}</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.faq")}</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.licensing")}</a></li>
+              <li><a href="/content-creators" className="hover:text-foreground transition-colors">{t("footer.contentCreators")}</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.commercial")}</a></li>
             </ul>
           </div>

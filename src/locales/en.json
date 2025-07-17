@@ -82,5 +82,15 @@
   "about.teamTitle": "Our Team",
   "about.teamDesc": "A collective of passionate TTRPG players, artists, and developers dedicated to the craft.",
   "about.visionTitle": "Our Vision",
-  "about.visionDesc": "To be the most trusted and beloved resource for TTRPG assets in the world."
+  "about.visionDesc": "To be the most trusted and beloved resource for TTRPG assets in the world.",
+  "contentCreators.title": "For Content Creators",
+  "contentCreators.subtitle": "Let's Collaborate and Bring Your Work to a New Audience",
+  "contentCreators.p1": "We are always looking for talented content creators to partner with. If you create high-quality TTRPG content and are interested in having your work translated into Turkish and featured on our platform, we would love to hear from you.",
+  "contentCreators.authorsTitle": "Authors & Designers",
+  "contentCreators.authorsDesc": "Share your adventures, supplements, and systems with the Turkish-speaking TTRPG community.",
+  "contentCreators.translatorsTitle": "Translators",
+  "contentCreators.translatorsDesc": "Join our team of skilled translators and help bring amazing content to a wider audience.",
+  "contentCreators.partnerTitle": "Partner With Us",
+  "contentCreators.partnerDesc": "Benefit from our platform, marketing, and community to grow your brand and reach.",
+  "footer.contentCreators": "Content Creators"
 }

@@ -82,5 +82,15 @@
   "about.teamTitle": "Ekibimiz",
   "about.teamDesc": "Zanaata adanmış tutkulu TTRPG oyuncuları, sanatçılar ve geliştiricilerden oluşan bir kolektif.",
   "about.visionTitle": "Vizyonumuz",
-  "about.visionDesc": "Dünyadaki TTRPG varlıkları için en güvenilir ve sevilen kaynak olmak."
+  "about.visionDesc": "Dünyadaki TTRPG varlıkları için en güvenilir ve sevilen kaynak olmak.",
+  "contentCreators.title": "İçerik Üreticileri İçin",
+  "contentCreators.subtitle": "İşbirliği Yapalım ve Çalışmalarınızı Yeni Kitlelere Ulaştıralım",
+  "contentCreators.p1": "Her zaman yetenekli içerik üreticileriyle ortaklık kurmak istiyoruz. Yüksek kaliteli TTRPG içeriği oluşturuyorsanız ve çalışmalarınızın Türkçe'ye çevrilip platformumuzda yer almasıyla ilgileniyorsanız, sizden haber almak isteriz.",
+  "contentCreators.authorsTitle": "Yazarlar ve Tasarımcılar",
+  "contentCreators.authorsDesc": "Maceralarınızı, eklerinizi ve sistemlerinizi Türkçe konuşan TTRPG topluluğuyla paylaşın.",
+  "contentCreators.translatorsTitle": "Çevirmenler",
+  "contentCreators.translatorsDesc": "Yetenekli çevirmen ekibimize katılın ve harika içeriklerin daha geniş bir kitleye ulaşmasına yardımcı olun.",
+  "contentCreators.partnerTitle": "Bizimle Ortak Olun",
+  "contentCreators.partnerDesc": "Markanızı ve erişiminizi büyütmek için platformumuzdan, pazarlamamızdan ve topluluğumuzdan yararlanın.",
+  "footer.contentCreators": "İçerik Üreticileri"
 }
