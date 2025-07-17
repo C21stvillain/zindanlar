@@ -173,16 +173,8 @@ export default function Header({
               onMouseLeave={handleMouseLeave}
             >
               <div className="hover:text-primary transition-colors">
-                <LanguageSwitcher />
+                <LanguageSwitcher showDropdown={activeMenu === "language"} />
               </div>
-              {activeMenu === "language" && (
-                <div
-                  className="absolute left-1/2 -translate-x-1/2 mt-2 bg-background border rounded-lg shadow-lg p-4 z-50 min-w-[120px] flex justify-center"
-                  onMouseEnter={() => handleMouseEnter("language")}
-                >
-                  <LanguageSwitcher showDropdown />
-                </div>
-              )}
             </div>
           </div>
 

@@ -73,4 +73,14 @@
   "language.turkish": "Türkçe",
   "bestiary.menu": "Canavar Günlüğü",
   "bestiary.title": "Canavar Günlüğü"
+  ,
+  "about.title": "Zindanlar Hakkında",
+  "about.subtitle": "Dünyalar Yaratmak, Efsaneler Yazmak",
+  "about.p1": "Zindanlar, masaüstü rol yapma oyunlarına ve hikaye anlatma sanatına duyulan ortak bir tutkudan doğdu. Sürükleyici, yüksek kaliteli varlıkların iyi bir oyunu unutulmaz bir deneyime dönüştürebileceğine inanan küçük bir adanmış sanatçı, yazar ve geliştirici ekibiyiz. Misyonumuz, Oyun Yöneticilerine oyuncuları için zengin, ilgi çekici dünyalar inşa etmeleri için ihtiyaç duydukları araçları sağlamaktır.",
+  "about.missionTitle": "Misyonumuz",
+  "about.missionDesc": "Oyun Yöneticilerini yaratıcılığı teşvik eden ve epik maceraları besleyen premium, kullanımı kolay varlıklarla güçlendirmek.",
+  "about.teamTitle": "Ekibimiz",
+  "about.teamDesc": "Zanaata adanmış tutkulu TTRPG oyuncuları, sanatçılar ve geliştiricilerden oluşan bir kolektif.",
+  "about.visionTitle": "Vizyonumuz",
+  "about.visionDesc": "Dünyadaki TTRPG varlıkları için en güvenilir ve sevilen kaynak olmak."
 }

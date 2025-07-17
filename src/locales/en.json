@@ -73,4 +73,14 @@
   "language.turkish": "Türkçe",
   "bestiary.menu": "Bestiary",
   "bestiary.title": "Bestiary"
+  ,
+  "about.title": "About Zindanlar",
+  "about.subtitle": "Crafting Worlds, Forging Legends",
+  "about.p1": "Zindanlar was born from a shared passion for tabletop role-playing games and the art of storytelling. We are a small team of dedicated artists, writers, and developers who believe that immersive, high-quality assets can transform a good game into an unforgettable experience. Our mission is to provide Game Masters with the tools they need to build rich, engaging worlds for their players.",
+  "about.missionTitle": "Our Mission",
+  "about.missionDesc": "To empower Game Masters with premium, easy-to-use assets that inspire creativity and foster epic adventures.",
+  "about.teamTitle": "Our Team",
+  "about.teamDesc": "A collective of passionate TTRPG players, artists, and developers dedicated to the craft.",
+  "about.visionTitle": "Our Vision",
+  "about.visionDesc": "To be the most trusted and beloved resource for TTRPG assets in the world."
 }

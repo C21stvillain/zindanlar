@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 const LANGS = [
@@ -13,31 +13,10 @@ interface LanguageSwitcherProps {
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ showDropdown = false }) => {
   const { i18n } = useTranslation();
   const current = i18n.language.split("-")[0];
-  const [open, setOpen] = useState(showDropdown);
-  const btnRef = useRef<HTMLButtonElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
-
-  useEffect(() => {
-    setOpen(showDropdown);
-  }, [showDropdown]);
-
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (
-        btnRef.current && !btnRef.current.contains(e.target as Node) &&
-        listRef.current && !listRef.current.contains(e.target as Node)
-      ) {
-        setOpen(false);
-      }
-    }
-    if (open && !showDropdown) document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, [open, showDropdown]);
 
   const handleSelect = (code: string) => {
     i18n.changeLanguage(code);
     localStorage.setItem("i18nextLng", code);
-    if (!showDropdown) setOpen(false);
   };
 
   const selected = LANGS.find(l => l.code === current) || LANGS[0];
@@ -45,21 +24,15 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ showDropdown
   return (
     <div className="relative flex items-center justify-center">
       {!showDropdown && (
-        <button
-          ref={btnRef}
+        <div
           className="flex items-center gap-1 rounded px-2 py-1 hover:bg-background text-foreground border border-border focus:outline-none focus:ring min-w-[48px] justify-center"
-          aria-haspopup="listbox"
-          aria-expanded={open}
-          aria-label="Select language"
-          onClick={() => !showDropdown && setOpen(v => !v)}
-          tabIndex={0}
+          aria-label="Current language"
         >
           <img src={selected.flag} alt={selected.alt} className="w-6 h-6 object-contain" />
-        </button>
+        </div>
       )}
-      {(open || showDropdown) && (
+      {showDropdown && (
         <ul
-          ref={listRef}
           className={`${showDropdown ? "" : "absolute right-0 mt-1"} w-16 bg-background border border-border rounded shadow z-50 flex flex-col items-center`}
           role="listbox"
         >
