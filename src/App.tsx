@@ -9,8 +9,8 @@ import { BaserowMonster } from "./types/baserow";
 
 import { MonsterCard } from "./components/MonsterCard";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
-import BeastPage from "./components/BeastPage";
-import PricingPage from "./components/PricingPage";
+import BeastPage from "./pages/BeastPage";
+import PricingPage from "./pages/PricingPage";
 import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "./components/Header";
