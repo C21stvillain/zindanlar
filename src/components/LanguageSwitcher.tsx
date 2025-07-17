@@ -22,33 +22,34 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ showDropdown
   const selected = LANGS.find(l => l.code === current) || LANGS[0];
 
   return (
-    <div className="relative flex items-center justify-center">
-      {!showDropdown && (
-        <div
-          className="flex items-center gap-1 rounded px-2 py-1 hover:bg-background text-foreground border border-border focus:outline-none focus:ring min-w-[48px] justify-center"
-          aria-label="Current language"
-        >
-          <img src={selected.flag} alt={selected.alt} className="w-6 h-6 object-contain" />
-        </div>
-      )}
+    <div className="relative">
+      {/* Always visible part */}
+      <div
+        className="flex items-center gap-2 hover:text-primary transition-colors font-semibold cursor-pointer"
+        aria-label="Current language"
+      >
+        <img src={selected.flag} alt={selected.alt} className="w-5 h-5 rounded-full object-cover" />
+        <span>{selected.code.toUpperCase()}</span>
+      </div>
+
+      {/* Dropdown part */}
       {showDropdown && (
-        <ul
-          className={`${showDropdown ? "" : "absolute right-0 mt-1"} w-16 bg-background border border-border rounded shadow z-50 flex flex-col items-center`}
-          role="listbox"
-        >
+        <div className="absolute left-0 mt-2 w-40 bg-background border rounded-lg shadow-lg p-2 flex flex-col gap-1 z-50">
           {LANGS.map(lang => (
-            <li
+            <button
               key={lang.code}
-              role="option"
-              aria-selected={lang.code === current}
-              className={`flex items-center justify-center w-full px-2 py-1 cursor-pointer hover:bg-muted ${lang.code === current ? "bg-muted" : ""}`}
               onClick={() => handleSelect(lang.code)}
-              tabIndex={0}
+              className={`w-full flex items-center gap-3 px-3 py-2 text-left rounded-md text-sm transition-colors ${
+                lang.code === current
+                  ? "bg-muted font-semibold"
+                  : "hover:bg-muted"
+              }`}
             >
-              <img src={lang.flag} alt={lang.alt} className="w-6 h-6 object-contain" />
-            </li>
+              <img src={lang.flag} alt={lang.alt} className="w-5 h-5 rounded-full object-cover" />
+              <span>{lang.alt}</span>
+            </button>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

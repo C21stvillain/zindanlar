@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 // import { getMonster } from "../services/baserow";
 import { BaserowMonster } from "../types/baserow";
 
 const BeastPage: React.FC = () => {
   const { t } = useTranslation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [monsters, setMonsters] = useState<BaserowMonster[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -43,7 +40,6 @@ const BeastPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <main className="flex-1 flex items-center justify-center">
         <div className="w-full max-w-4xl p-4">
           <h1 className="text-4xl font-bold mb-6">{t("Monster Table")}</h1>
@@ -89,7 +85,6 @@ const BeastPage: React.FC = () => {
           )}
         </div>
       </main>
-      <Footer />
     </div>
   );
 };

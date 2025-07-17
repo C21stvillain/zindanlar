@@ -1,13 +1,9 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 export default function PricingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Header isMenuOpen={false} setIsMenuOpen={() => {}} />
-
       <main className="container mx-auto px-4 py-24 text-center">
         <h1 className="text-5xl font-bold mb-8">Pricing</h1>
 
@@ -61,8 +57,6 @@ export default function PricingPage() {
           </Card>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

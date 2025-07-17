@@ -38,9 +38,7 @@ export default function Header({
           {/* Marka */}
           <div className="flex items-center">
             <a
-              href="https://zindanlar.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/"
               className="flex items-center"
             >
               <img src="/logo.png" alt="Logo" className="h-12 w-12" />
@@ -172,9 +170,7 @@ export default function Header({
               onMouseEnter={() => handleMouseEnter("language")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="hover:text-primary transition-colors">
-                <LanguageSwitcher showDropdown={activeMenu === "language"} />
-              </div>
+              <LanguageSwitcher showDropdown={activeMenu === "language"} />
             </div>
           </div>
 
