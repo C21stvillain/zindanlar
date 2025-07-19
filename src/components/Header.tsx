@@ -53,31 +53,34 @@ export default function Header({
             {/* ----------- Fantasy ----------- */}
             <div
               className="relative"
-              onMouseEnter={() => handleMouseEnter("fantasy")}
+              onMouseEnter={() => handleMouseEnter("tools")}
               onMouseLeave={handleMouseLeave}
             >
               <button className="hover:text-primary transition-colors font-semibold">
-                Fantasy
+                {t("nav.tools.title")}
               </button>
-              {activeMenu === "fantasy" && (
+              {activeMenu === "tools" && (
                 <div
                   className={dropdownClass}
-                  onMouseEnter={() => handleMouseEnter("fantasy")}
+                  onMouseEnter={() => handleMouseEnter("tools")}
                 >
                   <div className="max-w-5xl mx-auto flex justify-center gap-8 py-8">
-                    {["Battlemaps", "Tokens", "Scenes", "Map Assets"].map(
-                      (label) => (
-                        <div
-                          key={label}
-                          className="bg-muted rounded-lg p-4 flex flex-col items-center justify-center h-48 w-56 shadow-md transition-all border-2 border-transparent hover:border-yellow-400 hover:shadow-[0_0_16px_4px_rgba(255,215,0,0.5)]"
-                        >
-                          <span className="font-bold text-lg">{label}</span>
-                          <span className="text-xs text-muted-foreground mt-2">
-                            (Image placeholder)
-                          </span>
-                        </div>
-                      )
-                    )}
+                    {[
+                      { key: "resources", name: t("nav.tools.resources") },
+                      { key: "mechanics", name: t("nav.tools.mechanics") },
+                      { key: "adventures", name: t("nav.tools.adventures") },
+                      { key: "tools", name: t("nav.tools.map_assets") },
+                    ].map((item) => (
+                      <div
+                        key={item.key}
+                        className="bg-muted rounded-lg p-4 flex flex-col items-center justify-center h-48 w-56 shadow-md transition-all border-2 border-transparent hover:border-yellow-400 hover:shadow-[0_0_16px_4px_rgba(255,215,0,0.5)]"
+                      >
+                        <span className="font-bold text-lg">{item.name}</span>
+                        <span className="text-xs text-muted-foreground mt-2">
+                          (Image placeholder)
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
@@ -184,7 +187,15 @@ export default function Header({
         {isMenuOpen && (
           <div className="md:hidden mt-4 space-y-4 pb-4">
             {/* Mobile Fantasy */}
-            <DropdownGrid title="Fantasy" items={["Battlemaps", "Tokens", "Scenes", "Map Assets"]} />
+            <DropdownGrid
+              title={t("nav.tools.title")}
+              items={[
+                t("nav.tools.resources"),
+                t("nav.tools.mechanics"),
+                t("nav.tools.adventures"),
+                t("nav.tools.map_assets"),
+              ]}
+            />
 
             {/* Mobile Mechanics */}
             <DropdownGrid title="Mechanics" items={["SubClasses", "Races", "Items", "Creatures", "Other"]} />
