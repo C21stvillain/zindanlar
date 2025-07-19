@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Star, Zap, Users, Crown, Rocket, Shield, Eye, Download, MapPin, Sword, Scroll, Dice6 } from "lucide-react";
+import { Zap, Users, Crown, Rocket, Shield, Eye, Download, Sword, Scroll, Dice6, Map } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function HomePage() {
@@ -70,62 +70,17 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Battlemaps Section */}
-            <section id="battlemaps" className="py-24">
-                <div className="container mx-auto px-4">
-                    <div className="fantasy-divider mb-8"></div>
-                    <div className="text-center mb-16">
-                        <h2 className="text-5xl md:text-6xl font-bold section-title-gradient tracking-tight mb-6">
-                            {t("battlemaps.title")}
-                        </h2>
-                        <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                            {t("battlemaps.desc")}
-                        </p>
-                    </div>
-
-                    <div className="grid lg:grid-cols-3 gap-8 mb-16">
-                        <Card style={{ backgroundColor: 'var(--card-color-1)' }} className="border-transparent p-6 card-hover">
-                            <div className="space-y-4">
-                                <MapPin className="text-white w-8 h-8" />
-                                <h3 className="text-xl font-semibold text-white">{t("battlemaps.dungeonsTitle")}</h3>
-                                <p className="text-sm text-white/80">{t("battlemaps.dungeonsDesc")}</p>
-                                <div className="text-sm text-white font-semibold">{t("battlemaps.dungeonsCount")}</div>
-                            </div>
-                        </Card>
-
-                        <Card style={{ backgroundColor: 'var(--card-color-2)' }} className="border-transparent p-6 card-hover">
-                            <div className="space-y-4">
-                                <Crown className="text-white w-8 h-8" />
-                                <h3 className="text-xl font-semibold text-white">{t("battlemaps.tavernsTitle")}</h3>
-                                <p className="text-sm text-white/80">{t("battlemaps.tavernsDesc")}</p>
-                                <div className="text-sm text-white font-semibold">{t("battlemaps.tavernsCount")}</div>
-                            </div>
-                        </Card>
-
-                        <Card style={{ backgroundColor: 'var(--card-color-3)' }} className="border-transparent p-6 card-hover">
-                            <div className="space-y-4">
-                                <Zap className="text-white w-8 h-8" />
-                                <h3 className="text-xl font-semibold text-white">{t("battlemaps.wildernessTitle")}</h3>
-                                <p className="text-sm text-white/80">{t("battlemaps.wildernessDesc")}</p>
-                                <div className="text-sm text-white font-semibold">{t("battlemaps.wildernessCount")}</div>
-                            </div>
-                        </Card>
-                    </div>
-
-
-                </div>
-            </section>
 
             {/* Assets Section */}
             <section id="assets" className="py-24 bg-card/20">
                 <div className="container mx-auto px-4">
                     <div className="fantasy-divider mb-8"></div>
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-4">
+                        <div className="space-y-4 flex flex-col items-center">
                             <img
-                                src="/battlemap-example-1.jpg"
+                                src="/Assets.webp"
                                 alt="A collection of assets for TTRPGs"
-                                className="w-full rounded-lg border border-border/20 card-hover"
+                                className="w-[60%] rounded-lg border border-border/20 card-hover"
                             />
                             <div className="text-center">
                                 <h4 className="font-semibold text-lg">{t("assets.imageTitle")}</h4>
@@ -141,24 +96,14 @@ export default function HomePage() {
                                 {t("assets.desc")}
                             </p>
 
-                            <div className="space-y-6">
+                            <div className="grid md:grid-cols-2 gap-6">
                                 <div className="flex items-start gap-4">
                                     <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
-                                        <Shield className="w-4 h-4 text-primary-foreground" />
+                                        <Scroll className="w-4 h-4 text-primary-foreground" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold mb-2">{t("assets.objectsTitle")}</h4>
-                                        <p className="text-muted-foreground text-sm">{t("assets.objectsDesc")}</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-4">
-                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
-                                        <Zap className="w-4 h-4 text-primary-foreground" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold mb-2">{t("assets.effectsTitle")}</h4>
-                                        <p className="text-muted-foreground text-sm">{t("assets.effectsDesc")}</p>
+                                        <h4 className="font-semibold mb-1">{t("assets.customMapsTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("assets.customMapsDesc")}</p>
                                     </div>
                                 </div>
 
@@ -167,8 +112,28 @@ export default function HomePage() {
                                         <Rocket className="w-4 h-4 text-primary-foreground" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold mb-2">{t("assets.animatedTitle")}</h4>
-                                        <p className="text-muted-foreground text-sm">{t("assets.animatedDesc")}</p>
+                                        <h4 className="font-semibold mb-1">{t("assets.animatedScenesTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("assets.animatedScenesDesc")}</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                                        <Users className="w-4 h-4 text-primary-foreground" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold mb-1">{t("assets.topdownTokensTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("assets.topdownTokensDesc")}</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                                        <Map className="w-4 h-4 text-primary-foreground" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold mb-1">{t("assets.mapAssetsTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("assets.mapAssetsDesc")}</p>
                                     </div>
                                 </div>
                             </div>
@@ -324,55 +289,6 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Testimonials */}
-            <section className="py-24 bg-card/20">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("testimonials.title")}</h2>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            {t("testimonials.desc")}
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <Card className="p-8 space-y-4 card-hover">
-                            <div className="flex gap-1 mb-4">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-4 h-4 fill-current text-primary" />
-                                ))}
-                            </div>
-                            <p className="text-muted-foreground italic">
-                                {t("testimonials.sarah")}
-                            </p>
-                            <div className="font-semibold">{t("testimonials.sarahName")}</div>
-                        </Card>
-
-                        <Card className="p-8 space-y-4 card-hover">
-                            <div className="flex gap-1 mb-4">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-4 h-4 fill-current text-primary" />
-                                ))}
-                            </div>
-                            <p className="text-muted-foreground italic">
-                                {t("testimonials.marcus")}
-                            </p>
-                            <div className="font-semibold">{t("testimonials.marcusName")}</div>
-                        </Card>
-
-                        <Card className="p-8 space-y-4 card-hover">
-                            <div className="flex gap-1 mb-4">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-4 h-4 fill-current text-primary" />
-                                ))}
-                            </div>
-                            <p className="text-muted-foreground italic">
-                                {t("testimonials.elena")}
-                            </p>
-                            <div className="font-semibold">{t("testimonials.elenaName")}</div>
-                        </Card>
-                    </div>
-                </div>
-            </section>
 
             {/* Feature Cards Section */}
             <section className="py-24">

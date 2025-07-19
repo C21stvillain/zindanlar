@@ -1,5 +1,5 @@
 {
-  "headline": "Zindanlar",
+  "headline": "Crown Your Campaign",
   "button": "Start Adventure",
   "brand": "Zindanlar",
   "nav.battlemaps": "Battlemaps",
@@ -117,11 +117,13 @@
   "assets.imageSubtitle": "Drag-and-drop props and items",
   "assets.title": "Immersive Assets",
   "assets.desc": "Bring your scenes to life with a vast library of assets. From furniture to spell effects, find everything you need to build detailed and interactive environments for your players.",
-  "assets.objectsTitle": "Map Packs & Assets",
-  "assets.objectsDesc": "Hundreds of items to furnish your maps.",
-  "assets.effectsTitle": "Spell Effects",
-  "assets.effectsDesc": "Visualize magic with animated templates.",
-  "assets.animatedTitle": "Animated Scenes",
-  "assets.animatedDesc": "Dynamic scenes to wow your players.",
+  "assets.customMapsTitle": "Custom Maps Packs",
+  "assets.customMapsDesc": "Pre-made and custom map packs for any scenario.",
+  "assets.animatedScenesTitle": "Animated Scenes",
+  "assets.animatedScenesDesc": "Dynamic scenes to wow your players.",
+  "assets.topdownTokensTitle": "Topdown Tokens",
+  "assets.topdownTokensDesc": "A vast collection of character and monster tokens.",
+  "assets.mapAssetsTitle": "Map Assets",
+  "assets.mapAssetsDesc": "Build your own maps with our asset library.",
   "assets.browse": "Browse Assets"
 }

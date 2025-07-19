@@ -1,7 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Star } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function PricingPage() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="container mx-auto px-4 py-24 text-center">
@@ -56,6 +59,55 @@ export default function PricingPage() {
             </Button>
           </Card>
         </div>
+        {/* Testimonials */}
+        <section className="py-24">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("testimonials.title")}</h2>
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        {t("testimonials.desc")}
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8">
+                    <Card className="p-8 space-y-4 card-hover">
+                        <div className="flex gap-1 mb-4">
+                            {[...Array(5)].map((_, i) => (
+                                <Star key={i} className="w-4 h-4 fill-current text-primary" />
+                            ))}
+                        </div>
+                        <p className="text-muted-foreground italic">
+                            {t("testimonials.sarah")}
+                        </p>
+                        <div className="font-semibold">{t("testimonials.sarahName")}</div>
+                    </Card>
+
+                    <Card className="p-8 space-y-4 card-hover">
+                        <div className="flex gap-1 mb-4">
+                            {[...Array(5)].map((_, i) => (
+                                <Star key={i} className="w-4 h-4 fill-current text-primary" />
+                            ))}
+                        </div>
+                        <p className="text-muted-foreground italic">
+                            {t("testimonials.marcus")}
+                        </p>
+                        <div className="font-semibold">{t("testimonials.marcusName")}</div>
+                    </Card>
+
+                    <Card className="p-8 space-y-4 card-hover">
+                        <div className="flex gap-1 mb-4">
+                            {[...Array(5)].map((_, i) => (
+                                <Star key={i} className="w-4 h-4 fill-current text-primary" />
+                            ))}
+                        </div>
+                        <p className="text-muted-foreground italic">
+                            {t("testimonials.elena")}
+                        </p>
+                        <div className="font-semibold">{t("testimonials.elenaName")}</div>
+                    </Card>
+                </div>
+            </div>
+        </section>
       </main>
     </div>
   );
