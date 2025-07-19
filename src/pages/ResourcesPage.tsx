@@ -37,7 +37,7 @@ export default function ResourcesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div
                 className="resource-card-group card-image h-[32rem] bg-cover bg-center"
-                style={{ backgroundImage: "url('/1.webp')" }}
+                style={{ backgroundImage: "url('/Assets.webp')" }}
               >
                 <div className="absolute bottom-10 left-0 right-0 text-center">
                   <h3 className="text-white text-3xl font-bold resource-card-title tracking-widest">
@@ -47,7 +47,7 @@ export default function ResourcesPage() {
               </div>
               <div
                 className="resource-card-group card-image h-[32rem] bg-cover bg-center"
-                style={{ backgroundImage: "url('/2.webp')" }}
+                style={{ backgroundImage: "url('/adventure.webp')" }}
               >
                 <div className="absolute bottom-10 left-0 right-0 text-center">
                   <h3 className="text-white text-3xl font-bold resource-card-title tracking-widest">
@@ -57,8 +57,21 @@ export default function ResourcesPage() {
               </div>
               <div
                 className="resource-card-group card-image h-[32rem] bg-cover bg-center"
-                style={{ backgroundImage: "url('/3.webp')" }}
+                style={{ backgroundImage: "url('/TokenFrame2.webp')" }}
               >
+                <div className="absolute inset-0">
+                  <div className="token-images-container h-full">
+                    <div style={{ top: '15%', left: '25%', transform: 'rotate(-15deg)' }}>
+                      <img src="/Token1.png" alt="Token 1" className="token-image" />
+                    </div>
+                    <div style={{ top: '40%', left: '55%', transform: 'rotate(10deg)' }}>
+                      <img src="/Token2.png" alt="Token 2" className="token-image" />
+                    </div>
+                    <div style={{ top: '65%', left: '15%', transform: 'rotate(5deg)' }}>
+                      <img src="/Token3.png" alt="Token 3" className="token-image" />
+                    </div>
+                  </div>
+                </div>
                 <div className="absolute bottom-10 left-0 right-0 text-center">
                   <h3 className="text-white text-3xl font-bold resource-card-title tracking-widest">
                     {t("resources.tokens.title")}
@@ -67,8 +80,18 @@ export default function ResourcesPage() {
               </div>
               <div
                 className="resource-card-group card-image h-[32rem] bg-cover bg-center"
-                style={{ backgroundImage: "url('/Assets.webp')" }}
+                style={{ backgroundImage: "url('/mapAssets.webp')" }}
               >
+                <div className="absolute inset-0">
+                  <div className="token-images-container h-full">
+                    <div style={{ top: '20%', left: '60%', transform: 'rotate(15deg)' }}>
+                      <img src="/fireplace.webp" alt="Fireplace" className="token-image" />
+                    </div>
+                    <div style={{ top: '55%', left: '30%', transform: 'rotate(-10deg)' }}>
+                      <img src="/chest.webp" alt="Chest" className="token-image" />
+                    </div>
+                  </div>
+                </div>
                 <div className="absolute bottom-10 left-0 right-0 text-center">
                   <h3 className="text-white text-3xl font-bold resource-card-title tracking-widest">
                     {t("resources.map_assets.title")}
