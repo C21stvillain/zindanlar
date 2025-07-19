@@ -17,3 +17,20 @@ export const getMonster = async (): Promise<BaserowMonster> => {
     const data = await response.json();
     return data;
 };
+
+export const addEmail = async (email: string): Promise<void> => {
+    const response = await fetch("https://api.baserow.io/api/database/rows/table/613578/?user_field_names=true", {
+        method: 'POST',
+        headers: {
+            'Authorization': `Token ${AUTH_TOKEN}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "field_4983759": email
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to add email");
+    }
+};

@@ -86,42 +86,6 @@ export default function Header({
               )}
             </div>
 
-            {/* ----------- Mechanics ----------- */}
-            <div
-              className="relative"
-              onMouseEnter={() => handleMouseEnter("mechanics")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button className="hover:text-primary transition-colors font-semibold">
-                Mechanics
-              </button>
-              {activeMenu === "mechanics" && (
-                <div
-                  className={dropdownClass}
-                  onMouseEnter={() => handleMouseEnter("mechanics")}
-                >
-                  <div className="max-w-5xl mx-auto flex justify-center gap-8 py-8">
-                    {[
-                      "SubClasses",
-                      "Races",
-                      "Items",
-                      "Creatures",
-                      "Other",
-                    ].map((label) => (
-                      <div
-                        key={label}
-                        className="bg-muted rounded-lg p-4 flex flex-col items-center justify-center h-48 w-56 shadow-md transition-all border-2 border-transparent hover:border-yellow-400 hover:shadow-[0_0_16px_4px_rgba(255,215,0,0.5)]"
-                      >
-                        <span className="font-bold text-lg">{label}</span>
-                        <span className="text-xs text-muted-foreground mt-2">
-                          (Image placeholder)
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
 
             {/* ----------- Community ----------- */}
             <div
@@ -138,11 +102,10 @@ export default function Header({
                   onMouseEnter={() => handleMouseEnter("community")}
                 >
                   {[
-                    ["Patreon", "https://patreon.com"],
-                    ["Discord", "https://discord.com"],
-                    ["YouTube", "https://youtube.com"],
-                    ["Instagram", "https://instagram.com"],
-                    ["Reddit", "https://reddit.com"],
+                    ["Patreon", "https://www.patreon.com/c/zindanlar"],
+                    ["YouTube", "https://www.youtube.com/@charismacheck/featured"],
+                    ["Discord", "discord.gg/duQEp7Mq9r"],
+                    ["Instagram", "https://www.instagram.com/charismacheckdnd"],
                   ].map(([name, href]) => (
                     <a
                       key={name}
@@ -197,8 +160,6 @@ export default function Header({
               ]}
             />
 
-            {/* Mobile Mechanics */}
-            <DropdownGrid title="Mechanics" items={["SubClasses", "Races", "Items", "Creatures", "Other"]} />
 
             {/* Mobile Community */}
             <div>

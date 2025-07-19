@@ -4,9 +4,31 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Zap, Users, Crown, Rocket, Shield, Eye, Download, Sword, Scroll, Dice6, Map } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { addEmail } from "@/services/baserow";
 
 export default function HomePage() {
     const { t } = useTranslation();
+    const [email, setEmail] = useState("");
+
+    const handleStartAdventureClick = () => {
+        const assetsSection = document.getElementById('assets');
+        if (assetsSection) {
+            assetsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const handleSubscribe = async () => {
+        if (email) {
+            try {
+                await addEmail(email);
+                alert("Thank you for subscribing!");
+                setEmail("");
+            } catch (error) {
+                alert("Failed to subscribe. Please try again later.");
+            }
+        }
+    };
 
     return (
         <>
@@ -30,6 +52,7 @@ export default function HomePage() {
                         <Button
                             size="lg"
                             className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-semibold"
+                            onClick={handleStartAdventureClick}
                         >
                             <Download className="mr-2" />
                             {t("button")}
@@ -38,6 +61,7 @@ export default function HomePage() {
                             variant="outline"
                             size="lg"
                             className="backdrop-blur-sm border-foreground/20 px-8 py-6 text-lg"
+                            onClick={() => window.open("https://www.patreon.com/c/zindanlar/collections", "_blank", "noopener,noreferrer")}
                         >
                             <Eye className="mr-2" />
                             {t("hero.viewGallery")}
@@ -205,7 +229,7 @@ export default function HomePage() {
 
                         <div className="space-y-4 flex flex-col items-center">
                             <img
-                                src="/Mechanics.png"
+                                src="/Mechanics.webp"
                                 alt="Dynamic Mechanics"
                                 className="w-[50%] rounded-lg border border-border/20 card-hover"
                             />
@@ -334,8 +358,10 @@ export default function HomePage() {
                                 placeholder={t("newsletter.emailPlaceholder")}
                                 className="flex-1 bg-background/50"
                                 type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
-                            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
+                            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8" onClick={handleSubscribe}>
                                 {t("newsletter.subscribe")}
                             </Button>
                         </div>
