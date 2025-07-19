@@ -18,11 +18,9 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
                 <div className="container mx-auto px-4 text-center relative z-10">
-                    <Badge className="mb-6 fantasy-bg text-background px-4 py-2 text-sm font-semibold">
-                        {t("hero.badge")}
-                    </Badge>
+                    
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8 drop-shadow-2xl hero-title">
-                        <span className="fantasy-accent">{t("headline")}</span>
+                        <span className="hero-title-gradient">{t("headline")}</span>
                     </h1>
 
                     <p className="text-xl md:text-2xl text-foreground max-w-4xl mx-auto leading-relaxed drop-shadow-lg mb-12">
@@ -31,7 +29,7 @@ export default function HomePage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button
                             size="lg"
-                            className="fantasy-bg text-background hover:opacity-90 px-8 py-6 text-lg font-semibold"
+                            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-semibold"
                         >
                             <Download className="mr-2" />
                             {t("button")}
@@ -53,19 +51,19 @@ export default function HomePage() {
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         <div className="space-y-2">
-                            <div className="text-3xl md:text-4xl font-bold fantasy-accent">500+</div>
+                            <div className="text-3xl md:text-4xl font-bold text-primary">500+</div>
                             <div className="text-muted-foreground">{t("stats.battlemaps")}</div>
                         </div>
                         <div className="space-y-2">
-                            <div className="text-3xl md:text-4xl font-bold fantasy-accent">1000+</div>
+                            <div className="text-3xl md:text-4xl font-bold text-primary">1000+</div>
                             <div className="text-muted-foreground">{t("stats.tokens")}</div>
                         </div>
                         <div className="space-y-2">
-                            <div className="text-3xl md:text-4xl font-bold fantasy-accent">200+</div>
+                            <div className="text-3xl md:text-4xl font-bold text-primary">200+</div>
                             <div className="text-muted-foreground">{t("stats.scenes")}</div>
                         </div>
                         <div className="space-y-2">
-                            <div className="text-3xl md:text-4xl font-bold fantasy-accent">10K+</div>
+                            <div className="text-3xl md:text-4xl font-bold text-primary">10K+</div>
                             <div className="text-muted-foreground">{t("stats.happyDMs")}</div>
                         </div>
                     </div>
@@ -77,7 +75,7 @@ export default function HomePage() {
                 <div className="container mx-auto px-4">
                     <div className="fantasy-divider mb-8"></div>
                     <div className="text-center mb-16">
-                        <h2 className="text-5xl md:text-6xl font-bold fantasy-accent tracking-tight mb-6">
+                        <h2 className="text-5xl md:text-6xl font-bold section-title-gradient tracking-tight mb-6">
                             {t("battlemaps.title")}
                         </h2>
                         <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -86,35 +84,104 @@ export default function HomePage() {
                     </div>
 
                     <div className="grid lg:grid-cols-3 gap-8 mb-16">
-                        <Card className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-amber-500/20 p-6 card-hover">
+                        <Card style={{ backgroundColor: 'var(--card-color-1)' }} className="border-transparent p-6 card-hover">
                             <div className="space-y-4">
-                                <MapPin className="text-amber-400 w-8 h-8" />
-                                <h3 className="text-xl font-semibold">Dungeons & Crypts</h3>
-                                <p className="text-sm text-muted-foreground">{t("battlemaps.dungeonsDesc")}</p>
-                                <div className="text-sm fantasy-accent font-semibold">{t("battlemaps.dungeonsCount")}</div>
+                                <MapPin className="text-white w-8 h-8" />
+                                <h3 className="text-xl font-semibold text-white">{t("battlemaps.dungeonsTitle")}</h3>
+                                <p className="text-sm text-white/80">{t("battlemaps.dungeonsDesc")}</p>
+                                <div className="text-sm text-white font-semibold">{t("battlemaps.dungeonsCount")}</div>
                             </div>
                         </Card>
 
-                        <Card className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 border-green-500/20 p-6 card-hover">
+                        <Card style={{ backgroundColor: 'var(--card-color-2)' }} className="border-transparent p-6 card-hover">
                             <div className="space-y-4">
-                                <Crown className="text-green-400 w-8 h-8" />
-                                <h3 className="text-xl font-semibold">Taverns & Cities</h3>
-                                <p className="text-sm text-muted-foreground">{t("battlemaps.tavernsDesc")}</p>
-                                <div className="text-sm fantasy-accent font-semibold">{t("battlemaps.tavernsCount")}</div>
+                                <Crown className="text-white w-8 h-8" />
+                                <h3 className="text-xl font-semibold text-white">{t("battlemaps.tavernsTitle")}</h3>
+                                <p className="text-sm text-white/80">{t("battlemaps.tavernsDesc")}</p>
+                                <div className="text-sm text-white font-semibold">{t("battlemaps.tavernsCount")}</div>
                             </div>
                         </Card>
 
-                        <Card className="bg-gradient-to-br from-blue-900/20 to-indigo-900/20 border-blue-500/20 p-6 card-hover">
+                        <Card style={{ backgroundColor: 'var(--card-color-3)' }} className="border-transparent p-6 card-hover">
                             <div className="space-y-4">
-                                <Zap className="text-blue-400 w-8 h-8" />
-                                <h3 className="text-xl font-semibold">Wilderness & Magic</h3>
-                                <p className="text-sm text-muted-foreground">{t("battlemaps.wildernessDesc")}</p>
-                                <div className="text-sm fantasy-accent font-semibold">{t("battlemaps.wildernessCount")}</div>
+                                <Zap className="text-white w-8 h-8" />
+                                <h3 className="text-xl font-semibold text-white">{t("battlemaps.wildernessTitle")}</h3>
+                                <p className="text-sm text-white/80">{t("battlemaps.wildernessDesc")}</p>
+                                <div className="text-sm text-white font-semibold">{t("battlemaps.wildernessCount")}</div>
                             </div>
                         </Card>
                     </div>
 
 
+                </div>
+            </section>
+
+            {/* Assets Section */}
+            <section id="assets" className="py-24 bg-card/20">
+                <div className="container mx-auto px-4">
+                    <div className="fantasy-divider mb-8"></div>
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div className="space-y-4">
+                            <img
+                                src="/battlemap-example-1.jpg"
+                                alt="A collection of assets for TTRPGs"
+                                className="w-full rounded-lg border border-border/20 card-hover"
+                            />
+                            <div className="text-center">
+                                <h4 className="font-semibold text-lg">{t("assets.imageTitle")}</h4>
+                                <p className="text-muted-foreground">{t("assets.imageSubtitle")}</p>
+                            </div>
+                        </div>
+
+                        <div className="space-y-8">
+                            <h2 className="text-5xl md:text-6xl font-bold section-title-gradient tracking-tight">
+                                {t("assets.title")}
+                            </h2>
+                            <p className="text-lg text-muted-foreground leading-relaxed">
+                                {t("assets.desc")}
+                            </p>
+
+                            <div className="space-y-6">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                                        <Shield className="w-4 h-4 text-primary-foreground" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold mb-2">{t("assets.objectsTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("assets.objectsDesc")}</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                                        <Zap className="w-4 h-4 text-primary-foreground" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold mb-2">{t("assets.effectsTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("assets.effectsDesc")}</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                                        <Rocket className="w-4 h-4 text-primary-foreground" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold mb-2">{t("assets.animatedTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("assets.animatedDesc")}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Button
+                                size="lg"
+                                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-semibold"
+                            >
+                                <Download className="mr-2" />
+                                {t("assets.browse")}
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -124,7 +191,7 @@ export default function HomePage() {
                     <div className="fantasy-divider mb-8"></div>
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-8">
-                            <h2 className="text-5xl md:text-6xl font-bold fantasy-accent tracking-tight">
+                            <h2 className="text-5xl md:text-6xl font-bold section-title-gradient tracking-tight">
                                 {t("tokens.title")}
                             </h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -134,29 +201,29 @@ export default function HomePage() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <div className="flex items-center gap-2">
-                                        <Sword className="fantasy-accent w-5 h-5" />
-                                        <span className="font-semibold">All D&D Classes</span>
+                                        <Sword className="text-primary w-5 h-5" />
+                                        <span className="font-semibold">{t("tokens.allClassesTitle")}</span>
                                     </div>
                                     <p className="text-sm text-muted-foreground">{t("tokens.allClassesDesc")}</p>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="flex items-center gap-2">
-                                        <Users className="fantasy-accent w-5 h-5" />
-                                        <span className="font-semibold">Multiple Races</span>
+                                        <Users className="text-primary w-5 h-5" />
+                                        <span className="font-semibold">{t("tokens.racesTitle")}</span>
                                     </div>
                                     <p className="text-sm text-muted-foreground">{t("tokens.racesDesc")}</p>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="flex items-center gap-2">
-                                        <Crown className="fantasy-accent w-5 h-5" />
-                                        <span className="font-semibold">Various Ages</span>
+                                        <Crown className="text-primary w-5 h-5" />
+                                        <span className="font-semibold">{t("tokens.agesTitle")}</span>
                                     </div>
                                     <p className="text-sm text-muted-foreground">{t("tokens.agesDesc")}</p>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="flex items-center gap-2">
-                                        <Dice6 className="fantasy-accent w-5 h-5" />
-                                        <span className="font-semibold">Ready for VTT</span>
+                                        <Dice6 className="text-primary w-5 h-5" />
+                                        <span className="font-semibold">{t("tokens.vttTitle")}</span>
                                     </div>
                                     <p className="text-sm text-muted-foreground">{t("tokens.vttDesc")}</p>
                                 </div>
@@ -164,7 +231,7 @@ export default function HomePage() {
 
                             <Button
                                 size="lg"
-                                className="fantasy-bg text-background hover:opacity-90 px-8 py-6 text-lg font-semibold"
+                                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-semibold"
                             >
                                 <Download className="mr-2" />
                                 {t("tokens.browse")}
@@ -178,7 +245,7 @@ export default function HomePage() {
                                 className="w-full rounded-lg border border-border/20 card-hover"
                             />
                             <div className="text-center">
-                                <h4 className="font-semibold text-lg">25 Dragonborn Portraits</h4>
+                                <h4 className="font-semibold text-lg">{t("tokens.dragonbornTitle")}</h4>
                                 <p className="text-muted-foreground">{t("tokens.dragonbornDesc")}</p>
                             </div>
                         </div>
@@ -200,13 +267,13 @@ export default function HomePage() {
                                 className="w-full rounded-lg border border-border/20 card-hover"
                             />
                             <div className="text-center">
-                                <h4 className="font-semibold text-lg">The Wyrm's Rest Tavern</h4>
-                                <p className="text-muted-foreground">Perfect for social encounters and roleplay</p>
+                                <h4 className="font-semibold text-lg">{t("scenes.imageTitle")}</h4>
+                                <p className="text-muted-foreground">{t("scenes.imageSubtitle")}</p>
                             </div>
                         </div>
 
                         <div className="space-y-8">
-                            <h2 className="text-5xl md:text-6xl font-bold fantasy-accent tracking-tight">
+                            <h2 className="text-5xl md:text-6xl font-bold section-title-gradient tracking-tight">
                                 {t("scenes.title")}
                             </h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -215,31 +282,31 @@ export default function HomePage() {
 
                             <div className="space-y-6">
                                 <div className="flex items-start gap-4">
-                                    <div className="w-8 h-8 rounded-full fantasy-bg flex items-center justify-center flex-shrink-0 mt-1">
-                                        <Eye className="w-4 h-4 text-background" />
+                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                                        <Eye className="w-4 h-4 text-primary-foreground" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold mb-2">Theatre of the Mind</h4>
+                                        <h4 className="font-semibold mb-2">{t("scenes.theatreTitle")}</h4>
                                         <p className="text-muted-foreground text-sm">{t("scenes.theatreDesc")}</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-4">
-                                    <div className="w-8 h-8 rounded-full fantasy-bg flex items-center justify-center flex-shrink-0 mt-1">
-                                        <Scroll className="w-4 h-4 text-background" />
+                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                                        <Scroll className="w-4 h-4 text-primary-foreground" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold mb-2">Story Moments</h4>
+                                        <h4 className="font-semibold mb-2">{t("scenes.storyTitle")}</h4>
                                         <p className="text-muted-foreground text-sm">{t("scenes.storyDesc")}</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-4">
-                                    <div className="w-8 h-8 rounded-full fantasy-bg flex items-center justify-center flex-shrink-0 mt-1">
-                                        <Users className="w-4 h-4 text-background" />
+                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+                                        <Users className="w-4 h-4 text-primary-foreground" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold mb-2">Social Encounters</h4>
+                                        <h4 className="font-semibold mb-2">{t("scenes.socialTitle")}</h4>
                                         <p className="text-muted-foreground text-sm">{t("scenes.socialDesc")}</p>
                                     </div>
                                 </div>
@@ -247,7 +314,7 @@ export default function HomePage() {
 
                             <Button
                                 size="lg"
-                                className="fantasy-bg text-background hover:opacity-90 px-8 py-6 text-lg font-semibold"
+                                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-semibold"
                             >
                                 <Eye className="mr-2" />
                                 {t("scenes.viewScenes")}
@@ -261,7 +328,7 @@ export default function HomePage() {
             <section className="py-24 bg-card/20">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6">Loved by Game Masters</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("testimonials.title")}</h2>
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                             {t("testimonials.desc")}
                         </p>
@@ -271,37 +338,37 @@ export default function HomePage() {
                         <Card className="p-8 space-y-4 card-hover">
                             <div className="flex gap-1 mb-4">
                                 {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-4 h-4 fill-current fantasy-accent" />
+                                    <Star key={i} className="w-4 h-4 fill-current text-primary" />
                                 ))}
                             </div>
                             <p className="text-muted-foreground italic">
                                 {t("testimonials.sarah")}
                             </p>
-                            <div className="font-semibold">- Sarah M., DM for 8 years</div>
+                            <div className="font-semibold">{t("testimonials.sarahName")}</div>
                         </Card>
 
                         <Card className="p-8 space-y-4 card-hover">
                             <div className="flex gap-1 mb-4">
                                 {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-4 h-4 fill-current fantasy-accent" />
+                                    <Star key={i} className="w-4 h-4 fill-current text-primary" />
                                 ))}
                             </div>
                             <p className="text-muted-foreground italic">
                                 {t("testimonials.marcus")}
                             </p>
-                            <div className="font-semibold">- Marcus T., New DM</div>
+                            <div className="font-semibold">{t("testimonials.marcusName")}</div>
                         </Card>
 
                         <Card className="p-8 space-y-4 card-hover">
                             <div className="flex gap-1 mb-4">
                                 {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-4 h-4 fill-current fantasy-accent" />
+                                    <Star key={i} className="w-4 h-4 fill-current text-primary" />
                                 ))}
                             </div>
                             <p className="text-muted-foreground italic">
                                 {t("testimonials.elena")}
                             </p>
-                            <div className="font-semibold">- Elena R., Veteran DM</div>
+                            <div className="font-semibold">{t("testimonials.elenaName")}</div>
                         </Card>
                     </div>
                 </div>
@@ -315,27 +382,27 @@ export default function HomePage() {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        <Card className="bg-gradient-to-br from-indigo-900/20 to-purple-900/20 border-indigo-500/20 p-8 text-center space-y-6 card-hover">
-                            <div className="w-16 h-16 mx-auto bg-indigo-500/20 rounded-full flex items-center justify-center">
-                                <Crown className="text-indigo-400 w-8 h-8" />
+                        <Card className="bg-card border-primary/20 p-8 text-center space-y-6 card-hover">
+                            <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
+                                <Crown className="text-primary w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold">Premium Quality</h3>
+                            <h3 className="text-2xl font-bold">{t("features.premiumTitle")}</h3>
                             <p className="text-muted-foreground">{t("features.premiumDesc")}</p>
                         </Card>
 
-                        <Card className="bg-gradient-to-br from-emerald-900/20 to-green-900/20 border-emerald-500/20 p-8 text-center space-y-6 card-hover">
-                            <div className="w-16 h-16 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center">
-                                <Users className="text-emerald-400 w-8 h-8" />
+                        <Card className="bg-card border-primary/20 p-8 text-center space-y-6 card-hover">
+                            <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
+                                <Users className="text-primary w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold">Active Community</h3>
+                            <h3 className="text-2xl font-bold">{t("features.communityTitle")}</h3>
                             <p className="text-muted-foreground">{t("features.communityDesc")}</p>
                         </Card>
 
-                        <Card className="bg-gradient-to-br from-amber-900/20 to-yellow-900/20 border-amber-500/20 p-8 text-center space-y-6 card-hover">
-                            <div className="w-16 h-16 mx-auto bg-amber-500/20 rounded-full flex items-center justify-center">
-                                <Zap className="text-amber-400 w-8 h-8" />
+                        <Card className="bg-card border-primary/20 p-8 text-center space-y-6 card-hover">
+                            <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center">
+                                <Zap className="text-primary w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold">Regular Updates</h3>
+                            <h3 className="text-2xl font-bold">{t("features.updatesTitle")}</h3>
                             <p className="text-muted-foreground">{t("features.updatesDesc")}</p>
                         </Card>
                     </div>
@@ -346,7 +413,7 @@ export default function HomePage() {
             <section className="py-24 border-t border-border/20">
                 <div className="container mx-auto px-4">
                     <div className="max-w-2xl mx-auto text-center space-y-8">
-                        <h3 className="text-3xl font-bold">Join the Adventure</h3>
+                        <h3 className="text-3xl font-bold">{t("newsletter.title")}</h3>
                         <p className="text-muted-foreground text-lg">{t("newsletter.desc")}</p>
                         <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                             <Input
@@ -354,7 +421,7 @@ export default function HomePage() {
                                 className="flex-1 bg-background/50"
                                 type="email"
                             />
-                            <Button className="fantasy-bg text-background hover:opacity-90 px-8">
+                            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
                                 {t("newsletter.subscribe")}
                             </Button>
                         </div>

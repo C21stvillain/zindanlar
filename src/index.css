@@ -47,41 +47,49 @@
 
 :root {
   --radius: 0.5rem;
-  /* Dark theme as default to match Czepeku */
-  --background: oklch(0.08 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.75 0.2 55); /* Golden yellow for accents */
-  --primary-foreground: oklch(0.08 0 0);
-  --secondary: oklch(0.15 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.15 0 0);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.6 0.25 25);
-  --border: oklch(0.2 0 0);
-  --input: oklch(0.15 0 0);
-  --ring: oklch(0.75 0.2 55);
+  /* New Green Theme - Revised */
+  --background: #08140A; /* Darker Green */
+  --foreground: #FFFFFF; /* Brighter Text */
+  --card: #0D1F12; /* Darker Surface */
+  --card-foreground: #FFFFFF; /* Brighter Text */
+  --popover: #0D1F12;
+  --popover-foreground: #FFFFFF;
+  --primary: #38A169; /* A slightly brighter primary green */
+  --primary-foreground: #FFFFFF;
+  --secondary: #0D1F12;
+  --secondary-foreground: #FFFFFF;
+  --muted: #0D1F12;
+  --muted-foreground: #DCE4DC; /* Lighter muted text */
+  --accent: #A1F2C1;
+  --accent-foreground: #08140A;
+  --destructive: #D93E30;
+  --border: #2E8B57; /* Use primary color for border */
+  --input: #0D1F12;
+  --ring: #A1F2C1;
+
   /* Custom theme colors */
-  --fantasy-accent: oklch(0.75 0.2 55); /* Golden yellow */
-  --scifi-accent: oklch(0.7 0.25 195); /* Cyan/teal */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.12 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.15 0 0);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.15 0 0);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.2 0 0);
-  --sidebar-ring: oklch(0.65 0 0);
+  --fantasy-accent: var(--primary);
+  --scifi-accent: var(--primary);
+
+  /* New Card Palette */
+  --card-color-1: #C27D4F;
+  --card-color-2: #5A4A9F;
+  --card-color-3: #5F8575;
+
+  --chart-1: #38A169;
+  --chart-2: #A1F2C1;
+  --chart-3: #DCE4DC;
+  --chart-4: #FFFFFF;
+  --chart-5: #0D1F12;
+
+  --sidebar: #0D1F12;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #38A169;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #A1F2C1;
+  --sidebar-accent-foreground: #08140A;
+  --sidebar-border: #2E8B57;
+  --sidebar-ring: #A1F2C1;
 }
 
 .dark {
@@ -160,6 +168,12 @@
   }
   .hero-title {
     animation: float 6s ease-in-out infinite;
+  }
+  .hero-title-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+  }
+  .section-title-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
   }
   .card-hover {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
