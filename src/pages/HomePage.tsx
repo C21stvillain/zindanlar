@@ -150,47 +150,47 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Tokens Section */}
-            <section id="tokens" className="py-24 bg-card/20">
+            {/* Dynamic Mechanics Section */}
+            <section id="dynamic-mechanics" className="py-24 bg-card/20">
                 <div className="container mx-auto px-4">
                     <div className="fantasy-divider mb-8"></div>
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-8">
                             <h2 className="text-5xl md:text-6xl font-bold section-title-gradient tracking-tight">
-                                {t("tokens.title")}
+                                {t("dynamicMechanics.title")}
                             </h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                {t("tokens.desc")}
+                                {t("dynamicMechanics.desc")}
                             </p>
 
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-2">
-                                    <div className="flex items-center gap-2">
-                                        <Sword className="text-primary w-5 h-5" />
-                                        <span className="font-semibold">{t("tokens.allClassesTitle")}</span>
-                                    </div>
-                                    <p className="text-sm text-muted-foreground">{t("tokens.allClassesDesc")}</p>
-                                </div>
-                                <div className="space-y-2">
-                                    <div className="flex items-center gap-2">
-                                        <Users className="text-primary w-5 h-5" />
-                                        <span className="font-semibold">{t("tokens.racesTitle")}</span>
-                                    </div>
-                                    <p className="text-sm text-muted-foreground">{t("tokens.racesDesc")}</p>
-                                </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <div className="flex items-center gap-2">
                                         <Crown className="text-primary w-5 h-5" />
-                                        <span className="font-semibold">{t("tokens.agesTitle")}</span>
+                                        <span className="font-semibold">{t("dynamicMechanics.subclassesTitle")}</span>
                                     </div>
-                                    <p className="text-sm text-muted-foreground">{t("tokens.agesDesc")}</p>
+                                    <p className="text-sm text-muted-foreground">{t("dynamicMechanics.subclassesDesc")}</p>
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex items-center gap-2">
+                                        <Shield className="text-primary w-5 h-5" />
+                                        <span className="font-semibold">{t("dynamicMechanics.statBlocksTitle")}</span>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground">{t("dynamicMechanics.statBlocksDesc")}</p>
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex items-center gap-2">
+                                        <Scroll className="text-primary w-5 h-5" />
+                                        <span className="font-semibold">{t("dynamicMechanics.spellsTitle")}</span>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground">{t("dynamicMechanics.spellsDesc")}</p>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="flex items-center gap-2">
                                         <Dice6 className="text-primary w-5 h-5" />
-                                        <span className="font-semibold">{t("tokens.vttTitle")}</span>
+                                        <span className="font-semibold">{t("dynamicMechanics.gameSettingsTitle")}</span>
                                     </div>
-                                    <p className="text-sm text-muted-foreground">{t("tokens.vttDesc")}</p>
+                                    <p className="text-sm text-muted-foreground">{t("dynamicMechanics.gameSettingsDesc")}</p>
                                 </div>
                             </div>
 
@@ -199,60 +199,58 @@ export default function HomePage() {
                                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-semibold"
                             >
                                 <Download className="mr-2" />
-                                {t("tokens.browse")}
+                                {t("dynamicMechanics.browse")}
                             </Button>
                         </div>
 
-                        <div className="space-y-4">
+                        <div className="space-y-4 flex flex-col items-center">
                             <img
-                                src="/character-token-1.jpg"
-                                alt="Dragonborn character token collection"
-                                className="w-full rounded-lg border border-border/20 card-hover"
+                                src="/Mechanics.png"
+                                alt="Dynamic Mechanics"
+                                className="w-[50%] rounded-lg border border-border/20 card-hover"
                             />
                             <div className="text-center">
-                                <h4 className="font-semibold text-lg">{t("tokens.dragonbornTitle")}</h4>
-                                <p className="text-muted-foreground">{t("tokens.dragonbornDesc")}</p>
+                                <h4 className="font-semibold text-lg">{t("dynamicMechanics.imageTitle")}</h4>
+                                <p className="text-muted-foreground">{t("dynamicMechanics.imageSubtitle")}</p>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </section>
 
-            {/* Scenes Section */}
-            <section id="scenes" className="py-24">
+            {/* Adventures Section */}
+            <section id="adventures" className="py-24">
                 <div className="container mx-auto px-4">
                     <div className="fantasy-divider mb-8"></div>
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-4">
                             <img
-                                src="/tavern-scene.jpg"
-                                alt="Fantasy tavern interior scene"
+                                src="/adventure.webp"
+                                alt="An adventurous scene for TTRPGs"
                                 className="w-full rounded-lg border border-border/20 card-hover"
                             />
                             <div className="text-center">
-                                <h4 className="font-semibold text-lg">{t("scenes.imageTitle")}</h4>
-                                <p className="text-muted-foreground">{t("scenes.imageSubtitle")}</p>
+                                <h4 className="font-semibold text-lg">{t("adventures.imageTitle")}</h4>
+                                <p className="text-muted-foreground">{t("adventures.imageSubtitle")}</p>
                             </div>
                         </div>
 
                         <div className="space-y-8">
                             <h2 className="text-5xl md:text-6xl font-bold section-title-gradient tracking-tight">
-                                {t("scenes.title")}
+                                {t("adventures.title")}
                             </h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                {t("scenes.desc")}
+                                {t("adventures.desc")}
                             </p>
 
                             <div className="space-y-6">
                                 <div className="flex items-start gap-4">
                                     <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
-                                        <Eye className="w-4 h-4 text-primary-foreground" />
+                                        <Sword className="w-4 h-4 text-primary-foreground" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold mb-2">{t("scenes.theatreTitle")}</h4>
-                                        <p className="text-muted-foreground text-sm">{t("scenes.theatreDesc")}</p>
+                                        <h4 className="font-semibold mb-2">{t("adventures.oneShotTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("adventures.oneShotDesc")}</p>
                                     </div>
                                 </div>
 
@@ -261,8 +259,8 @@ export default function HomePage() {
                                         <Scroll className="w-4 h-4 text-primary-foreground" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold mb-2">{t("scenes.storyTitle")}</h4>
-                                        <p className="text-muted-foreground text-sm">{t("scenes.storyDesc")}</p>
+                                        <h4 className="font-semibold mb-2">{t("adventures.storyTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("adventures.storyDesc")}</p>
                                     </div>
                                 </div>
 
@@ -271,8 +269,8 @@ export default function HomePage() {
                                         <Users className="w-4 h-4 text-primary-foreground" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold mb-2">{t("scenes.socialTitle")}</h4>
-                                        <p className="text-muted-foreground text-sm">{t("scenes.socialDesc")}</p>
+                                        <h4 className="font-semibold mb-2">{t("adventures.socialTitle")}</h4>
+                                        <p className="text-muted-foreground text-sm">{t("adventures.socialDesc")}</p>
                                     </div>
                                 </div>
                             </div>
@@ -282,7 +280,7 @@ export default function HomePage() {
                                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-semibold"
                             >
                                 <Eye className="mr-2" />
-                                {t("scenes.viewScenes")}
+                                {t("adventures.viewAdventures")}
                             </Button>
                         </div>
                     </div>
