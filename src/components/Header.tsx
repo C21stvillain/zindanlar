@@ -71,16 +71,17 @@ export default function Header({
                       { key: "adventures", name: t("nav.tools.adventures") },
                       { key: "tools", name: t("nav.tools.map_assets") },
                     ].map((item) => (
-                      <div
-                        key={item.key}
-                        className="bg-muted rounded-lg p-4 flex flex-col items-center justify-center h-48 w-56 shadow-md transition-all border-2 border-transparent hover:border-yellow-400 hover:shadow-[0_0_16px_4px_rgba(255,215,0,0.5)]"
-                      >
-                        <span className="font-bold text-lg">{item.name}</span>
-                        <span className="text-xs text-muted-foreground mt-2">
-                          (Image placeholder)
-                        </span>
-                      </div>
-                    ))}
+                     <a href={item.key === 'resources' ? '/resources' : '#'} key={item.key}>
+                       <div
+                         className="bg-muted rounded-lg p-4 flex flex-col items-center justify-center h-48 w-56 shadow-md transition-all border-2 border-transparent hover:border-yellow-400 hover:shadow-[0_0_16px_4px_rgba(255,215,0,0.5)]"
+                       >
+                         <span className="font-bold text-lg">{item.name}</span>
+                         <span className="text-xs text-muted-foreground mt-2">
+                           (Image placeholder)
+                         </span>
+                       </div>
+                     </a>
+                   ))}
                   </div>
                 </div>
               )}

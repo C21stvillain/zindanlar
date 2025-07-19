@@ -2,61 +2,97 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function PricingPage() {
   const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="container mx-auto px-4 py-24 text-center">
-        <h1 className="text-5xl font-bold mb-8">Pricing</h1>
+        <h1 className="text-5xl font-bold mb-8">{t("pricing.title")}</h1>
 
         {/* ─── Pricing Cards ─────────────────────────────────────── */}
-        <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 mt-12">
-          {/* Basic Card */}
-          <Card className="w-80 p-8 flex flex-col justify-between">
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Basic</h2>
-              <ul className="list-disc list-inside text-left mb-6 text-muted-foreground">
-                <li>Access to free assets</li>
-                <li>Community support</li>
-                <li>Limited downloads</li>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-12">
+          {/* Novice Adventurer Card */}
+          <Card className="w-96 bg-[#1a2a1a] text-white rounded-lg overflow-hidden border border-gray-700">
+            <div className="relative h-48 flex items-center justify-center">
+              <img src="/Token1.png" alt="Token" className="h-44 w-44 object-cover" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold mb-2">{t("pricing.novice.title")}</h2>
+              <p className="text-xl mb-4">
+                {t("pricing.novice.price")}
+                <span className="text-sm text-gray-400">{t("pricing.novice.period")}</span>
+              </p>
+              <Link to="/subscribe/novice">
+                <Button className="w-full bg-green-200 text-black hover:bg-green-300">{t("pricing.novice.join")}</Button>
+              </Link>
+              <ul className="list-disc list-inside text-left mt-6 space-y-2 text-gray-300">
+                <li>{t("pricing.novice.feature1")}</li>
+                <li>{t("pricing.novice.feature2")}</li>
+                <li>{t("pricing.novice.feature3")}</li>
+                <li>{t("pricing.novice.feature4")}</li>
+                <li>{t("pricing.novice.feature5")}</li>
+                <li>{t("pricing.novice.feature6")}</li>
               </ul>
             </div>
-            <Button className="w-full mt-4" variant="outline">
-              Choose Basic
-            </Button>
           </Card>
 
-          {/* Pro Card (Highlighted) */}
-          <Card className="w-80 p-8 flex flex-col justify-between fantasy-bg text-white border-2 border-yellow-400 shadow-lg scale-105">
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Pro</h2>
-              <ul className="list-disc list-inside text-left mb-6">
-                <li>All Basic features</li>
-                <li>Unlimited downloads</li>
-                <li>Exclusive assets</li>
-                <li>Priority support</li>
-              </ul>
+          {/* Dragon Hunter Card (Highlighted) */}
+          <div className="relative">
+            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-200 text-black px-4 py-1 rounded-t-md text-sm font-semibold">
+              {t("pricing.dragon.recommended")}
             </div>
-            <Button className="w-full mt-4 fantasy-bg text-white hover:opacity-90">
-              Choose Pro
-            </Button>
-          </Card>
+            <Card className="w-96 bg-[#1a2a1a] text-white rounded-lg overflow-hidden border-2 border-green-300 shadow-lg">
+              <div className="relative h-48 flex items-center justify-center">
+                <img src="/Token2.png" alt="Token" className="h-44 w-44 object-cover" />
+              </div>
+              <div className="p-6">
+                <h2 className="text-2xl font-bold mb-2">{t("pricing.dragon.title")}</h2>
+                <p className="text-xl mb-4">
+                  {t("pricing.dragon.price")}
+                  <span className="text-sm text-gray-400">{t("pricing.dragon.period")}</span>
+                </p>
+                <Link to="/subscribe/dragon">
+                  <Button className="w-full bg-green-200 text-black hover:bg-green-300">{t("pricing.dragon.join")}</Button>
+                </Link>
+                <ul className="list-disc list-inside text-left mt-6 space-y-2 text-gray-300">
+                  <li>{t("pricing.dragon.feature1")}</li>
+                  <li>{t("pricing.dragon.feature2")}</li>
+                  <li>{t("pricing.dragon.feature3")}</li>
+                  <li>{t("pricing.dragon.feature4")}</li>
+                  <li>{t("pricing.dragon.feature5")}</li>
+                  <li>{t("pricing.dragon.feature6")}</li>
+                  <li>{t("pricing.dragon.feature7")}</li>
+                  <li>{t("pricing.dragon.feature8")}</li>
+                </ul>
+              </div>
+            </Card>
+          </div>
 
-          {/* Ultimate Card */}
-          <Card className="w-80 p-8 flex flex-col justify-between">
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Ultimate</h2>
-              <ul className="list-disc list-inside text-left mb-6 text-muted-foreground">
-                <li>All Pro features</li>
-                <li>Early access to new releases</li>
-                <li>Custom requests</li>
-                <li>Special badge</li>
+          {/* Legendary Hero Card */}
+          <Card className="w-96 bg-[#1a2a1a] text-white rounded-lg overflow-hidden border border-gray-700">
+            <div className="relative h-48 flex items-center justify-center">
+              <img src="/Token3.png" alt="Token" className="h-44 w-44 object-cover" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold mb-2">{t("pricing.legendary.title")}</h2>
+              <p className="text-xl mb-4">
+                {t("pricing.legendary.price")}
+                <span className="text-sm text-gray-400">{t("pricing.legendary.period")}</span>
+              </p>
+              <Link to="/subscribe/legendary">
+                <Button className="w-full bg-green-200 text-black hover:bg-green-300">{t("pricing.legendary.join")}</Button>
+              </Link>
+              <ul className="list-disc list-inside text-left mt-6 space-y-2 text-gray-300">
+                <li>{t("pricing.legendary.feature1")}</li>
+                <li>{t("pricing.legendary.feature2")}</li>
+                <li>{t("pricing.legendary.feature3")}</li>
+                <li>{t("pricing.legendary.feature4")}</li>
+                <li>{t("pricing.legendary.feature5")}</li>
+                <li>{t("pricing.legendary.feature6")}</li>
               </ul>
             </div>
-            <Button className="w-full mt-4" variant="outline">
-              Choose Ultimate
-            </Button>
           </Card>
         </div>
         {/* Testimonials */}

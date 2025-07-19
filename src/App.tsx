@@ -7,6 +7,7 @@ import AboutPage from "./pages/AboutPage";
 import BeastPage from "./pages/BeastPage";
 import PricingPage from "./pages/PricingPage";
 import ContentCreatorsPage from "./pages/ContentCreatorsPage";
+import ResourcesPage from "./pages/ResourcesPage";
 
 import "./i18n";
 
@@ -26,6 +27,8 @@ function App() {
         return <PricingPage />;
       case "/content-creators":
         return <ContentCreatorsPage />;
+      case "/resources":
+        return <ResourcesPage />;
       default:
         return <HomePage />;
     }
