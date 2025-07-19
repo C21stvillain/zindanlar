@@ -210,3 +210,26 @@
     @apply bg-background text-foreground;
   }
 }
+
+.card-image {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+}
+
+.resource-card-group {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card-group:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.resource-card-title {
+  transition: transform 0.3s ease;
+}
+
+.resource-card-group:hover .resource-card-title {
+  transform: scale(1.1);
+}

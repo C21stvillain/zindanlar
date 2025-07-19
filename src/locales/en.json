@@ -180,5 +180,14 @@
   "pricing.legendary.feature5": "General support",
   "pricing.legendary.feature6": "Digital downloads",
   "resources.title": "Resources",
-  "resources.description": "Here you can find all the resources you need for your adventures."
+  "resources.description": "Here you can find all the resources you need for your adventures.",
+  "resources.hero.title": "ZINDANLAR",
+  "resources.hero.description": "Level up your TTRPG adventures with battle and region maps, animated scenes, topdown tokens and Map Assets.",
+  "resources.fantasy.title": "RESOURCES",
+  "resources.fantasy.description": "Foggy swamps. Ruined keeps. Lantern lit markets are now alive on your table. Drop topdown or isometric assets and looping animated scenes straight into any VTT or print. Built for D&D, Pathfinder, Call of Cthulhu, Daggerheart and more! Load, place, play.",
+  "resources.fantasy.explore": "Explore",
+  "resources.maps.title": "MAPS",
+  "resources.scenes.title": "SCENES",
+  "resources.tokens.title": "TOKENS",
+  "resources.map_assets.title": "MAP ASSETS"
 }

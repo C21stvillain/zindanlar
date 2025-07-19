@@ -179,5 +179,14 @@
   "pricing.legendary.feature5": "Genel destek",
   "pricing.legendary.feature6": "Dijital indirmeler",
   "resources.title": "Kaynaklar",
-  "resources.description": "Maceralarınız için ihtiyacınız olan tüm kaynakları burada bulabilirsiniz."
+  "resources.description": "Maceralarınız için ihtiyacınız olan tüm kaynakları burada bulabilirsiniz.",
+  "resources.hero.title": "CZEPEKU",
+  "resources.hero.description": "Ödüllü savaş haritaları, sahneler ve jetonlarla TTRPG maceralarınızı bir üst seviyeye taşıyın.",
+  "resources.fantasy.title": "FANTASTİK",
+  "resources.fantasy.description": "Lanetli bataklıklar. Antik kalıntılar. Hareketli pazarlar. Her türden kahramanlar. İster ejderhaları kovalıyor olun, ister soyluları cezbedin, fantastik maceralarınız için hazırlanmış resimli varlıklarla heyecan verici maceralara zemin hazırlayın. D&D, Pathfinder ve daha fazlası gibi oyunlar için mükemmeldir.",
+  "resources.fantasy.explore": "Keşfet",
+  "resources.maps.title": "HARİTALAR",
+  "resources.scenes.title": "SAHNELER",
+  "resources.tokens.title": "JETONLAR",
+  "resources.map_assets.title": "HARİTA VARLIKLARI"
 }
